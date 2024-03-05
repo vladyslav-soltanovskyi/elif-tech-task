@@ -1,0 +1,39 @@
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child) {
+      margin-left: 2rem;
+    }
+
+    &__icon {
+      height: 2rem;
+      width: 2rem;
+      border-radius: 0.5rem;
+      border-width: 1px;
+      border-color: #eff6ff;
+      padding: 0.25rem;
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+
+      > svg {
+        height: 100%;
+        width: 100%;
+        color: #3b82f6;
+      }
+    }
+
+    &__name {
+      margin-left: 0.625rem;
+      font-size: .75rem;
+      line-height: 1rem;
+      font-weight: 500;
+      color: #111827;
+    }
+  }
+}

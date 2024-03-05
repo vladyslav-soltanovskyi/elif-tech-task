@@ -1,0 +1,51 @@
+.counter {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  background-color: #ffffff;
+
+  &__input {
+    height: 1.75rem;
+    width: 2rem;
+    border-radius: 0;
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    color: #000000;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  &__btn {
+    display: flex;
+    height: 1.75rem;
+    width: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e5e5e5;
+    cursor: pointer;
+    background-color: inherit;
+
+    > svg {
+      height: 0.875rem;
+      width: 0.875rem;
+    }
+
+    &.left {
+      border-top-left-radius: 9999px;
+      border-bottom-left-radius: 9999px;
+    }
+
+    &.right {
+      border-top-right-radius: 9999px;
+    border-bottom-right-radius: 9999px;
+    }
+    
+    &:disabled {
+      opacity: 0.3;
+    }
+  }
+}

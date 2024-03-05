@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Shop {
+  id        String    @id @default(uuid()) @db.Uuid
+  name      String
+  imageUrl  String
+  address   String
+  lat       Float
+  lng       Float
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  coupons   Coupon[]
+  products  Product[]
+  orders    Order[]
+}
+
+model Product {
+  id                String            @id @default(uuid()) @db.Uuid
+  title             String            @db.VarChar(256)
+  poster            String
+  description       String
+  price             Float
+  shopId            String            @db.Uuid
+  shop              Shop              @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  orderedProducts   Ordered_Product[] 
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+}
+
+model Order {
+  id        String            @id @default(uuid()) @db.Uuid
+  address   String
+  lat       Float
+  lng       Float
+  email     String
+  phone     String
+  name      String
+  spent     Float
+  shopId    String            @db.Uuid
+  shop      Shop              @relation(fields: [shopId], references: [id], onDelete: NoAction)
+  products  Ordered_Product[]
+  status    OrderStatus       @default(PAID)
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+}
+
+model Ordered_Product {
+  id         String    @id @default(uuid()) @db.Uuid
+  productId  String    @db.Uuid
+  qty        Int
+  product    Product   @relation(fields: [productId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  orderId    String    @db.Uuid
+  order      Order     @relation(fields: [orderId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+
+model Coupon {
+  id        String      @id @default(uuid()) @db.Uuid
+  code      String
+  amount    Float
+  isPercent Boolean     @default(true)
+  type      CouponTypes @default(ALL)
+  shopId    String?     @unique @db.Uuid
+  shop      Shop?       @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  dateStart DateTime
+  dateEnd   DateTime
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+enum CouponTypes {
+  ALL
+  SHOP
+}
+
+enum OrderStatus {
+  PAID
+  PENDING
+  DELIVERING
+  DELIVERED
+  CANCELLED
+}

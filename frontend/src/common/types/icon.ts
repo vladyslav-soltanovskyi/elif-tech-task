@@ -1,0 +1,1 @@
+export type TypeIconName = 'copy' | 'cart' | 'spinner' | 'heart'| 'arrow' | 'coupons' | 'orders' | 'checked' | 'add' | 'remove' | 'close';

@@ -1,0 +1,14 @@
+.cart {
+  width: 100%;
+  
+  .content {
+    margin-top: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+
+    > div {
+      margin-left: 1.25rem;
+      flex: 1 1 0%;
+    }
+  }
+}

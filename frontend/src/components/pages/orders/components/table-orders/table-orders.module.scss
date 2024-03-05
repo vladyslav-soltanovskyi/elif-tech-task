@@ -1,0 +1,70 @@
+.table {
+  margin-top: 2rem;
+  width: 100%;
+  table-layout: auto;
+
+  &__head {
+    background-color: #f9fafb;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #9ca3af;
+  }
+
+  &__header {
+    white-space: nowrap;
+    padding: 0.5rem;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  &__body {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  &__ceil {
+    white-space: nowrap;
+    padding: 0.5rem;
+    text-align: left;
+
+    &__item {
+      align-items: center;
+      display: flex;
+      margin-top: 0.5rem;
+    }
+
+    .status {
+      padding: 0.5rem;
+      text-transform: uppercase;
+      color: #ffffff;
+
+      &.paid {
+        background-color: #6366f1;
+      }
+
+      &.pending {
+        background-color: #3b82f6;
+      }
+
+      &.delivering {
+        background-color: #f97316;
+      }
+
+      &.delivered {
+        background-color: #22c55e;
+      }
+
+      &.cancelled {
+        background-color: #ef4444;
+      }
+    }
+
+    &__amount {
+      color: #22c55e;
+      font-weight: 500;
+      text-align: left;
+    }
+  }
+}

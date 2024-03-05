@@ -1,0 +1,18 @@
+.button {
+	border-radius: 0.25rem;
+  background-color: rgb(59, 130, 246);
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+
+  &_full {
+    width: 100%;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .3;
+  }
+}

@@ -1,0 +1,15 @@
+.option {
+  padding: 14px 8px 14px 16px;
+  list-style: none;
+  margin-bottom: 0.1em;
+  color: #222;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken(#fff, 4%);
+  }
+  
+  &:active {
+    background-color: #dadce0;
+  }
+}

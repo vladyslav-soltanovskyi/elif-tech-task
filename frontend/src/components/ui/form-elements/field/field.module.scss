@@ -1,0 +1,22 @@
+.field {  
+  input {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
+    padding: 0.875rem 1rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    color: #6b7280;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  &__error {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: .75rem;
+    line-height: 1rem;
+    color: #ef4444;
+  }
+}

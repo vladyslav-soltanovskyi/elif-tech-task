@@ -1,0 +1,19 @@
+.form {
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  padding: 1.75rem 1.25rem;
+
+  &__title {
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  &__fields {
+    margin-top: 1.25rem;
+
+    & > div {
+      margin-top: 1.5rem;
+    }
+  }
+}

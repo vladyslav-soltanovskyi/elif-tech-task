@@ -1,0 +1,16 @@
+.copy {
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  padding: 0.25rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+
+  > svg {
+    height: 100%;
+    width: 100%;
+    color: #6b7280;
+  }
+}

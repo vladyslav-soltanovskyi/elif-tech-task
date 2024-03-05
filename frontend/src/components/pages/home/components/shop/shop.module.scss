@@ -1,0 +1,38 @@
+.shop {
+  background-color: #f6f0ea;
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  &.active {
+    background-color: rgb(246, 223, 204);
+  }
+
+  &__name {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    flex: 1 1 0%;
+  }
+
+  &__icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-left: 10px;
+
+    & > img {
+      max-height: 100%;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

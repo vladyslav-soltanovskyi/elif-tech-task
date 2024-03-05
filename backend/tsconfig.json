@@ -1,0 +1,39 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+    "lib": ["esnext"],
+    "allowJs": true,
+		"strict": false,
+		"skipLibCheck": true,
+		"moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+		"removeComments": true,
+    "baseUrl": "./src",
+    "module": "CommonJS",
+    "noEmit": false,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "paths": {
+      "@config/*": ["./config/*"],
+			"@enums/*": ["./common/enums/*"],
+			"@types-app/*": ["./common/types/*"],
+      "@errors/*": ["./common/errors/*"],
+      "@helpers/*": ["./helpers/*"],
+      "@services/*": ["./services/*"],
+      "@controllers/*": ["./controllers"],
+      "@routes/*": ["./routes/*"],
+      "@middlewares/*": ["./middlewares/*"],
+      "@validation/*": ["./validation/*"]
+    },
+		"outDir": "./dist"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    },
+    "require": ["tsconfig-paths/register"]
+  }
+}
