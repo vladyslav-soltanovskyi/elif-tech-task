@@ -33,7 +33,7 @@ const Home: FC = () => {
     >
       <div className={styles.home}>
         <div className={styles.section}>
-          <Heading title="Shops" />
+          <Heading title="Pharmacies" />
           <ShopContainer
             shops={shops}
             isLoading={isShopsLoading}
@@ -43,7 +43,7 @@ const Home: FC = () => {
         </div>
         <div className={styles.section}>
           <div className={styles.header}>
-            <Heading title={`Goods (${countProducts ?? 0})`} />
+            <Heading title={`medicines (${countProducts ?? 0})`} />
             <SortSelect activeSortType={activeSortType} onClickSortType={onClickSortType} activeOrderBy={activeOrderBy} />
           </div>
           <CardContainer
