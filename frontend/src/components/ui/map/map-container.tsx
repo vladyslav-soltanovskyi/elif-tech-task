@@ -1,7 +1,7 @@
 import { Libraries, useJsApiLoader } from "@react-google-maps/api";
 import Map from "./map";
 import AutoComplete from "@ui/form-elements/auto-complete/auto-complete";
-import { FC, useMemo, useState } from "react";
+import { FC, useState } from "react";
 import { useTypedSelector } from "@hooks/useTypedSelector";
 
 const libraries: Libraries = ["places", "geocoding", "routes"];
@@ -28,18 +28,16 @@ const MapContainer: FC<IMapContainerProps> = ({
   });
 
   const [directions, setDirections] = useState<google.maps.DirectionsResult>();
-  const lat = useTypedSelector(({ cart }) => cart.cart.lat);
-  const lng = useTypedSelector(({ cart }) => cart.cart.lng);
-  const shopPosition = useMemo(() => ({ lat: lat!, lng: lng! }), [lat, lng]);
-
+  const shopPosition = useTypedSelector(({ cart }) => cart.cart.coordinates);
 
   const fetchDirections = (coordinates: google.maps.LatLngLiteral) => {
     if (!coordinates) return;
+    if (!shopPosition) return;
 
     const service = new google.maps.DirectionsService();
     service.route(
       {
-        origin: shopPosition!,
+        origin: shopPosition,
         destination: coordinates,
         travelMode: google.maps.TravelMode.DRIVING,
       },
@@ -67,11 +65,17 @@ const MapContainer: FC<IMapContainerProps> = ({
         onChangeAddress={onChangeAddress}
         directions={directions}
         shopPosition={shopPosition}
-        />
+      />
       {directions && (
         <div>
-          <div><strong>Duration:</strong> {directions.routes[0].legs[0].duration?.text}</div>
-          <div><strong>Distance:</strong> {directions.routes[0].legs[0].distance?.text}</div>
+          <div>
+            <strong>Duration:</strong>{" "}
+            {directions.routes[0].legs[0].duration?.text}
+          </div>
+          <div>
+            <strong>Distance:</strong>{" "}
+            {directions.routes[0].legs[0].distance?.text}
+          </div>
         </div>
       )}
       <AutoComplete

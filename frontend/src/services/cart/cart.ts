@@ -29,8 +29,10 @@ export const addProductInCart = (productData: ProductDto) => {
   } else {
     if (!cart?.products?.length) {
       cart.shopId = productData.shopId;
-      cart.lat = productData.shop.lat;
-      cart.lng = productData.shop.lng;
+      cart.coordinates = {
+        lng: productData.shop.lat,
+        lat: productData.shop.lng
+      }
       cart.products = [{ product: productData, qty: 1 }];
     } else {
       cart.products?.push({ product: productData, qty: 1 });
@@ -80,8 +82,7 @@ export const removeProductFromCart = (productId: string) => {
   
   if(!newProducts.length) {
     delete cart.shopId;
-    delete cart.lat;
-    delete cart.lng;
+    delete cart.coordinates;
   }
 
   setCart(cart);

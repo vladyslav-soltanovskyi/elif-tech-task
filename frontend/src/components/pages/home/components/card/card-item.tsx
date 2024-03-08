@@ -18,7 +18,6 @@ const CardItem: FC<ICardItemProps> = (props) => {
     id,
     title,
     poster,
-    description,
     price,
     shopId,
     shop,
@@ -49,9 +48,6 @@ const CardItem: FC<ICardItemProps> = (props) => {
       </div>
       <div className={styles.card__content}>
         <h2 className={styles["card__content-title"]}>{title}</h2>
-        <p className={styles["card__content-description"]} title={description}>
-          {description}
-        </p>
         <p className={styles["card__content-company"]}>
           Company: <span>{shop.name}</span>
         </p>

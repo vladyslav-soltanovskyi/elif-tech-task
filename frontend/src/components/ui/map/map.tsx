@@ -37,8 +37,12 @@ const Map: FC<IMapProps> = ({
 }) => {
   const mapRef = useRef<google.maps.Map | null>(null);
 
+  const defautlCoordinates = { lat: 50.43117762451211, lng: 30.49929525880389 };
+
   const onLoad = (map: google.maps.Map) => {
-    const bounds = new window.google.maps.LatLngBounds(coordinates ?? shopPosition);
+    const bounds = new window.google.maps.LatLngBounds(
+      coordinates ?? shopPosition ?? defautlCoordinates
+    );
     map.fitBounds(bounds);
 
     mapRef.current = map;
@@ -57,7 +61,7 @@ const Map: FC<IMapProps> = ({
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
-      center={coordinates ?? shopPosition}
+      center={coordinates ?? shopPosition ?? defautlCoordinates}
       options={defaultOptions}
       zoom={5}
       onLoad={onLoad}
